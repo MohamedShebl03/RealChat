@@ -6,7 +6,6 @@ function Dashboard() {
     <>
       <div className="container-fluid">
         <div className="row vh-100">
-          {/* Sidebar */}
           <Sidebar />
           <Outlet />
         </div>

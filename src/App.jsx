@@ -14,6 +14,9 @@ import SignUp from './Components/Auth/Signup';
 import ForgetPassword from './Components/Auth/ForgetPassword';
 import VerifyCode from './Components/Auth/VerifyCode';
 import UpdatePassword from './Components/Auth/UpdatePassword';
+import ProtectRoute from './Components/Auth/ProtectRoute';
+import NotFound from './Components/NotFound';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -23,7 +26,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Dashboard />}>
+        <Route path='/' element={<ProtectRoute><Dashboard /></ProtectRoute>}>
           <Route path='/' element={<ChatsLayout />}>
             <Route index element={<InitialPage />} />
           </Route>
@@ -45,7 +48,10 @@ function App() {
         <Route path='/forgetpassword' element={<ForgetPassword />} />
         <Route path='/updatepassword' element={<UpdatePassword />} />
         <Route path='/verifycode' element={<VerifyCode />} />
+
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
+      <ToastContainer />
     </>
   )
 }

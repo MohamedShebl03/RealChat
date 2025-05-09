@@ -34,6 +34,7 @@ const SignIn = () => {
         await axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin", values).then((res) => {
             setMessage(res.data.message)
             setLoading(false)
+            localStorage.setItem("token", res.data.token)
             toast(res.data.message, {
                 position: "top-right",
                 autoClose: 5000,
